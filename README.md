@@ -10,9 +10,9 @@ $ brew install instill-ai/tap/<FORMULA>
 
 ## Formulae
 
-| Repository                               | Formula                       | Description                             |
-| ---------------------------------------- | ----------------------------- | --------------------------------------- |
-| [cli](https://github.com/instill-ai/cli) | [formula](Formula/instill.rb) | Instill AI's official command line tool |
+| Repository                               | Formula                    | Description                                           |
+| ---------------------------------------- | -------------------------- | ----------------------------------------------------- |
+| [cli](https://github.com/instill-ai/cli) | [formula](Formula/inst.rb) | Instill AI's command line tool for Instill Core/Cloud |
 
 ## Documentation
 
