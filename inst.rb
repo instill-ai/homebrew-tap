@@ -5,12 +5,12 @@
 class Inst < Formula
   desc "Instill AI's command-line tool"
   homepage "https://github.com/instill-ai/cli"
-  version "0.1.0-alpha"
+  version "0.2.0-alpha"
   license "Apache-2.0"
 
   on_macos do
-    url "https://github.com/instill-ai/cli/releases/download/v0.1.0-alpha/inst_Darwin_x86_64.tar.gz"
-    sha256 "a949a6d5ffba07eeb11c1b58455334494c258ec7e4e7060db373646be8e48497"
+    url "https://github.com/instill-ai/cli/releases/download/v0.2.0-alpha/inst_Darwin_x86_64.tar.gz"
+    sha256 "36f3c7c9c34857b42aba5a71201ec1433521e8af28c523ea92c4a959545b7b76"
 
     def install
       bin.install "bin/inst"
@@ -31,9 +31,9 @@ class Inst < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/instill-ai/cli/releases/download/v0.1.0-alpha/inst_Linux_x86_64.tar.gz"
-      sha256 "8b9cd01411795a3d0279a628baaa367c75245a76b74e539f0e638811540ad0db"
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/instill-ai/cli/releases/download/v0.2.0-alpha/inst_Linux_armv6.tar.gz"
+      sha256 "99f73f57874d6adf9b61471024bc1b0a6aaa6492ac46fb5863d1995b82680942"
 
       def install
         bin.install "bin/inst"
@@ -43,8 +43,8 @@ class Inst < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/instill-ai/cli/releases/download/v0.1.0-alpha/inst_Linux_arm64.tar.gz"
-      sha256 "6f9de367e28270373df13a995e4e2f3dc3fd6676145472ff1098812ff80ca04d"
+      url "https://github.com/instill-ai/cli/releases/download/v0.2.0-alpha/inst_Linux_arm64.tar.gz"
+      sha256 "a1580560fafce4a93cae61642421f7ca0e6a594d44ce3138c8629e916a89664a"
 
       def install
         bin.install "bin/inst"
@@ -53,9 +53,9 @@ class Inst < Formula
         (zsh_completion/"_inst").write `#{bin}/inst completion -s zsh`
       end
     end
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/instill-ai/cli/releases/download/v0.1.0-alpha/inst_Linux_armv6.tar.gz"
-      sha256 "0524f2eff52bebc7a23fd4af0d9fe0865c371371e2abcdfbacff8aa35e0fecee"
+    if Hardware::CPU.intel?
+      url "https://github.com/instill-ai/cli/releases/download/v0.2.0-alpha/inst_Linux_x86_64.tar.gz"
+      sha256 "4b00d9b3365d9ecaec4dffa86f7dd96dc6adff8dfbd2e60da7b249a7618fdbc1"
 
       def install
         bin.install "bin/inst"
