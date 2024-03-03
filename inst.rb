@@ -5,12 +5,12 @@
 class Inst < Formula
   desc "Instill AI's command-line tool"
   homepage "https://github.com/instill-ai/cli"
-  version "0.3.1-alpha"
+  version "0.4.0"
   license "Apache-2.0"
 
   on_macos do
-    url "https://github.com/instill-ai/cli/releases/download/v0.3.1-alpha/inst_Darwin_x86_64.tar.gz"
-    sha256 "c9a38f579d2b9a0214cd5f19be67b5231eff768efed2e6b5543801c9e21130ab"
+    url "https://github.com/instill-ai/cli/releases/download/v0.4.0/inst_Darwin_x86_64.tar.gz"
+    sha256 "d492cd3a30e7285c30068ac21c1a4bebd501995d9d9a13439cab27e937467a5f"
 
     def install
       bin.install "bin/inst"
@@ -31,20 +31,9 @@ class Inst < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/instill-ai/cli/releases/download/v0.3.1-alpha/inst_Linux_armv6.tar.gz"
-      sha256 "bbd77a47d9594b7befbf284c71de448fb482e259f564f13a58c76a84bc9efe22"
-
-      def install
-        bin.install "bin/inst"
-        (bash_completion/"inst").write `#{bin}/inst completion -s bash`
-        (fish_completion/"inst.fish").write `#{bin}/inst completion -s fish`
-        (zsh_completion/"_inst").write `#{bin}/inst completion -s zsh`
-      end
-    end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/instill-ai/cli/releases/download/v0.3.1-alpha/inst_Linux_arm64.tar.gz"
-      sha256 "75f79ce70785f8410830fcb36292379d0695883bac18485a11d79c59c415ab75"
+      url "https://github.com/instill-ai/cli/releases/download/v0.4.0/inst_Linux_arm64.tar.gz"
+      sha256 "96180196340090dc1131d9183039e7d89c6933120b6948894185cf327455a042"
 
       def install
         bin.install "bin/inst"
@@ -54,8 +43,19 @@ class Inst < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/instill-ai/cli/releases/download/v0.3.1-alpha/inst_Linux_x86_64.tar.gz"
-      sha256 "c8c4dcb73d601ca8fdfa8c8dd1eb823d1b3c45d47cf8f2e64323550316ae4989"
+      url "https://github.com/instill-ai/cli/releases/download/v0.4.0/inst_Linux_x86_64.tar.gz"
+      sha256 "c0ca5e76374f61e9364964c01368bceb06a0c99370a1b51f9abd9e4dcaabab86"
+
+      def install
+        bin.install "bin/inst"
+        (bash_completion/"inst").write `#{bin}/inst completion -s bash`
+        (fish_completion/"inst.fish").write `#{bin}/inst completion -s fish`
+        (zsh_completion/"_inst").write `#{bin}/inst completion -s zsh`
+      end
+    end
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/instill-ai/cli/releases/download/v0.4.0/inst_Linux_armv6.tar.gz"
+      sha256 "4fcab2cf82bd0edc3dd4313679b4712d599fe419a8afcc5e176ae830a58d5270"
 
       def install
         bin.install "bin/inst"
