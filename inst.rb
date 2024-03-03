@@ -5,12 +5,12 @@
 class Inst < Formula
   desc "Instill AI's command-line tool"
   homepage "https://github.com/instill-ai/cli"
-  version "0.3.0-alpha"
+  version "0.3.1-alpha"
   license "Apache-2.0"
 
   on_macos do
-    url "https://github.com/instill-ai/cli/releases/download/v0.3.0-alpha/inst_Darwin_x86_64.tar.gz"
-    sha256 "522a40c31e5c9c782bf3e25aba9fb8455fbf9dbded384960b4cdc160c832004a"
+    url "https://github.com/instill-ai/cli/releases/download/v0.3.1-alpha/inst_Darwin_x86_64.tar.gz"
+    sha256 "c9a38f579d2b9a0214cd5f19be67b5231eff768efed2e6b5543801c9e21130ab"
 
     def install
       bin.install "bin/inst"
@@ -32,8 +32,8 @@ class Inst < Formula
 
   on_linux do
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/instill-ai/cli/releases/download/v0.3.0-alpha/inst_Linux_armv6.tar.gz"
-      sha256 "2022393c056c4fef9425bc45f9ebea60a78bdddb89972bde3f1123672cb809ae"
+      url "https://github.com/instill-ai/cli/releases/download/v0.3.1-alpha/inst_Linux_armv6.tar.gz"
+      sha256 "bbd77a47d9594b7befbf284c71de448fb482e259f564f13a58c76a84bc9efe22"
 
       def install
         bin.install "bin/inst"
@@ -43,8 +43,8 @@ class Inst < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/instill-ai/cli/releases/download/v0.3.0-alpha/inst_Linux_arm64.tar.gz"
-      sha256 "1fe176830fae9462202966ac0648ece0e27130cfeeac64f6dca2622d16b12a5d"
+      url "https://github.com/instill-ai/cli/releases/download/v0.3.1-alpha/inst_Linux_arm64.tar.gz"
+      sha256 "75f79ce70785f8410830fcb36292379d0695883bac18485a11d79c59c415ab75"
 
       def install
         bin.install "bin/inst"
@@ -54,8 +54,8 @@ class Inst < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/instill-ai/cli/releases/download/v0.3.0-alpha/inst_Linux_x86_64.tar.gz"
-      sha256 "e34ce2a2432414091a43cb416b37717f415fd7aee5e1f8b8b396a8ef56e09332"
+      url "https://github.com/instill-ai/cli/releases/download/v0.3.1-alpha/inst_Linux_x86_64.tar.gz"
+      sha256 "c8c4dcb73d601ca8fdfa8c8dd1eb823d1b3c45d47cf8f2e64323550316ae4989"
 
       def install
         bin.install "bin/inst"
